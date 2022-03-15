@@ -13,6 +13,7 @@
 		558B192327DFBA780033C8FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558B192127DFBA780033C8FB /* Main.storyboard */; };
 		558B192527DFBA7A0033C8FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558B192427DFBA7A0033C8FB /* Assets.xcassets */; };
 		558B192827DFBA7A0033C8FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558B192627DFBA7A0033C8FB /* LaunchScreen.storyboard */; };
+		8CFEB3C427DFE33700800875 /* Botoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEB3C327DFE33700800875 /* Botoes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		558B192427DFBA7A0033C8FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		558B192727DFBA7A0033C8FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		558B192927DFBA7A0033C8FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CFEB3C327DFE33700800875 /* Botoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Botoes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				558B191B27DFBA780033C8FB /* AppDelegate.swift */,
 				558B191D27DFBA780033C8FB /* SceneDelegate.swift */,
 				558B191F27DFBA780033C8FB /* ViewController.swift */,
+				8CFEB3C327DFE33700800875 /* Botoes.swift */,
 				558B192127DFBA780033C8FB /* Main.storyboard */,
 				558B192427DFBA7A0033C8FB /* Assets.xcassets */,
 				558B192627DFBA7A0033C8FB /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				558B192027DFBA780033C8FB /* ViewController.swift in Sources */,
 				558B191C27DFBA780033C8FB /* AppDelegate.swift in Sources */,
 				558B191E27DFBA780033C8FB /* SceneDelegate.swift in Sources */,
+				8CFEB3C427DFE33700800875 /* Botoes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
