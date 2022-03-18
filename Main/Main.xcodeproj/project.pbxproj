@@ -81,7 +81,6 @@
 				558B191B27DFBA780033C8FB /* AppDelegate.swift */,
 				558B191D27DFBA780033C8FB /* SceneDelegate.swift */,
 				F6B4B6AB27E3FE6600DF55B2 /* StoryBoard */,
-				558B192627DFBA7A0033C8FB /* LaunchScreen.storyboard */,
 				F6B4B6AC27E3FE9900DF55B2 /* ViewControler */,
 				558B192427DFBA7A0033C8FB /* Assets.xcassets */,
 				558B192927DFBA7A0033C8FB /* Info.plist */,
@@ -92,6 +91,7 @@
 		F6B4B6AB27E3FE6600DF55B2 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				558B192627DFBA7A0033C8FB /* LaunchScreen.storyboard */,
 				558B192127DFBA780033C8FB /* Main.storyboard */,
 				F6B4B69527E3BE1300DF55B2 /* TelaDeAdicionar.storyboard */,
 				F6B4B69727E3BE4700DF55B2 /* TelaDeAutores.storyboard */,
