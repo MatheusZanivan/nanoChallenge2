@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  estante
+//  Challenger2
 //
-//  Created by Matheus Zanivan on 21/03/22.
+//  Created by Vinicius Gomes on 21/03/22.
 //
 
 import UIKit
