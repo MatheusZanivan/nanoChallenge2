@@ -13,16 +13,23 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBOutlet var table: UITableView!
     @IBOutlet var label: UILabel!
     
-    var models: [(title: String, note: String)] = []
+    var models: [(title: String, note: String, autor: String, categoria: String)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         table.delegate = self
         table.dataSource = self
-        title = "Leituras"
+        title = "Estante"
         
     }
+    // filter
+    
+    @IBAction func Filter(_ sender: UISegmentedControl) {
+        
+    }
+    
+    
     // Ao tocar no botao faça/
     @IBAction func didTapNewNote(){
         guard let vc = storyboard?.instantiateViewController(identifier: "new") as? EntryViewController else {
@@ -30,9 +37,9 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         }
         vc.title = "Nova Leitura"
         vc.navigationItem.largeTitleDisplayMode = .never
-        vc.completion = { noteTitle, note in
+        vc.completion = { noteTitle, note, autor, categoria in
             self.navigationController?.popViewController(animated: true)
-            self.models.append((title: noteTitle ,note: note))
+            self.models.append((title: noteTitle ,note: note, autor: autor, categoria: categoria ))
             self.label.isHidden = true
             self.table.isHidden = false
             
@@ -58,16 +65,24 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         let model = models[indexPath.row]
         
         // Show note controller
-        guard let vc = storyboard?.instantiateViewController(identifier: "note") as? NoteViewController else {
+        guard let vc = storyboard?.instantiateViewController(identifier: "note")     as? NoteViewController else {
             return
         }
         vc.navigationItem.largeTitleDisplayMode = .never
-        vc.title = "Note"
-        vc.noteTitle = model.title
-        vc.note = model.note
+        vc.title = model.title
+        vc.Title = model.title
+        vc.Note = model.note
+        vc.Autor = model.autor
+        vc.Categoria = model.categoria
         navigationController?.pushViewController(vc,animated: true)
+        
+        
     }
-
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        models.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
 
 }
 
