@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBAction func Filter(_ sender: UISegmentedControl) {
         
     }
-    
+    //sort elements
     
     // Ao tocar no botao faça/
     @IBAction func didTapNewNote(){
@@ -83,6 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
+    //models.sort()
 
 }
 
