@@ -7,28 +7,64 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSource  {
+class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSource  {
     
-    
+    struct Livro{
+        var autor: String
+        var title: String
+        var note: String
+        var categoria: String
+        var status: UIColor
+    }
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet var table: UITableView!
     @IBOutlet var label: UILabel!
     
-    var models: [(title: String, note: String, autor: String, categoria: String)] = []
+//    @IBOutlet var viewCell: UIView!
+//    @IBOutlet var labelTitulo: UILabel!
+//    @IBOutlet var labelAutor: UILabel!
+//    @IBOutlet var labelGenero: UILabel!
+//    @IBOutlet var veiwStatus: UIView!
+//
+//    var models: [(title: String, note: String, autor: String, categoria: String)] = []
+    var models: [Livro] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
        
         table.delegate = self
         table.dataSource = self
         title = "Estante"
         
+        
+        
     }
     // filter
     
+    
+    func sortBasedOnSegmentPressed(){
+        switch segmentControl.selectedSegmentIndex{
+        case 0:
+            ordemTodos()
+        case 1:
+            ordemAutor()
+        case 2:
+            ordemCategoria()
+        case 3:
+            ordemStatus()
+        default: print("erro")
+        }
+    }
+    
     @IBAction func Filter(_ sender: UISegmentedControl) {
+        sortBasedOnSegmentPressed()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
     }
-    //sort elements
+    
     
     // Ao tocar no botao faça/
     @IBAction func didTapNewNote(){
@@ -39,13 +75,14 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.completion = { noteTitle, note, autor, categoria in
             self.navigationController?.popViewController(animated: true)
-            self.models.append((title: noteTitle ,note: note, autor: autor, categoria: categoria ))
+//            self.models.append((title: noteTitle ,note: note, autor: autor, categoria: categoria ))
+            self.models.append(Livro(autor: autor, title: noteTitle, note: note, categoria: categoria, status: .green))
             self.label.isHidden = true
             self.table.isHidden = false
-            
             self.table.reloadData()
             
         }
+        ordemTodos()
         navigationController?.pushViewController(vc, animated: true)
     }
     // Table
@@ -53,6 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = models[indexPath.row].title
@@ -78,12 +116,28 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
         
         
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         models.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+    func ordemTodos(){
+        models.sort { $0.title < $1.title }
+        table.reloadData()
+    }
+    func ordemAutor(){
+        models.sort { $0.autor < $1.autor }
+        table.reloadData()
+    }
+    func ordemCategoria(){
+        models.sort { $0.categoria < $1.categoria }
+        table.reloadData()
+    }
+    func ordemStatus(){
+        
+    }
     
-    //models.sort()
+
 
 }
 

@@ -79,6 +79,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="i72-Ie-xUE"/>
                     <connections>
                         <outlet property="label" destination="LFB-bG-F03" id="Rwm-mR-Fp2"/>
+                        <outlet property="segmentControl" destination="aiH-FR-CR1" id="pbG-2Z-k6V"/>
                         <outlet property="table" destination="yPF-sT-q6P" id="kEu-Hv-m6t"/>
                     </connections>
                 </viewController>
