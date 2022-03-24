@@ -32,7 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        let nib = UINib(nibName: "customTableViewCell", bundle: nil)
+        table.register(nib, forCellReuseIdentifier: "customTableViewCell")
         table.delegate = self
         table.dataSource = self
         title = "Estante"
@@ -92,8 +93,12 @@ class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = models[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell", for: indexPath) as! customTableViewCell
+        
+        cell.labelNome.text = models[indexPath.row].title
+        cell.labelAutor.text = models[indexPath.row].autor
+        cell.labelCategoria.text = models[indexPath.row].categoria
+        cell.statusImage.backgroundColor = .green
         cell.detailTextLabel?.text = models[indexPath.row].note
         return cell
     }
@@ -116,6 +121,10 @@ class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSour
         
         
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
+//    tableViewBord
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         models.remove(at: indexPath.row)
