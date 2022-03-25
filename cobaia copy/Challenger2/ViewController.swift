@@ -27,18 +27,27 @@ class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSour
 //    @IBOutlet var veiwStatus: UIView!
 //
 //    var models: [(title: String, note: String, autor: String, categoria: String)] = []
+    let preset: [Livro] = [
+        .init(autor: "aaaaaaa", title: "aaaaaaa", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
+        .init(autor: "bbbbbbb", title: "bbbbbbb", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
+        .init(autor: "ccccccc", title: "ccccccc", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
+        .init(autor: "ddddddd", title: "ddddddd", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
+        .init(autor: "eeeeeeeee", title: "eeeeeeeee", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
+    ]
+    
     var models: [Livro] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let nib = UINib(nibName: "customTableViewCell", bundle: nil)
         table.register(nib, forCellReuseIdentifier: "customTableViewCell")
         table.delegate = self
         table.dataSource = self
+        table.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
         title = "Estante"
-        
-        
+        models = preset
+        table.reloadData()
         
     }
     // filter
@@ -63,7 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSour
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        sortBasedOnSegmentPressed()
     }
     
     
@@ -91,7 +100,7 @@ class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return models.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell", for: indexPath) as! customTableViewCell
         
@@ -122,8 +131,9 @@ class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSour
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        return 125.0
     }
+   
 //    tableViewBord
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

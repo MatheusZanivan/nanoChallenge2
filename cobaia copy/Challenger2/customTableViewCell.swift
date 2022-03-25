@@ -17,6 +17,11 @@ class customTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.cellView.layer.cornerRadius = 17
+        self.cellView.layer.borderWidth = 0
+        self.cellView.layer.borderColor = UIColor.black.cgColor
+        cellView.layer.masksToBounds = true
+        self.backgroundColor = .clear
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,5 +29,6 @@ class customTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }
