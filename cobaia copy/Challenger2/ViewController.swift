@@ -28,11 +28,14 @@ class ViewController: UIViewController, UITableViewDelegate ,UITableViewDataSour
 //
 //    var models: [(title: String, note: String, autor: String, categoria: String)] = []
     let preset: [Livro] = [
-        .init(autor: "aaaaaaa", title: "aaaaaaa", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
-        .init(autor: "bbbbbbb", title: "bbbbbbb", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
-        .init(autor: "ccccccc", title: "ccccccc", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
-        .init(autor: "ddddddd", title: "ddddddd", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
-        .init(autor: "eeeeeeeee", title: "eeeeeeeee", note: "aaaaaaa", categoria: "aaaaaaa", status: .red),
+        .init(autor: "JK Rolling", title: "Harry Potter", note: "Mora na escara", categoria: "Ficção", status: .red),
+        .init(autor: "Allan Poue", title: "Historias Obscuras", note: "aaaaaaa", categoria: "Terror", status: .red),
+        .init(autor: "Allan Poue", title: "O Corvo", note: "aaaaaaa", categoria: "Terror", status: .red),
+        .init(autor: "Stephan King", title: "It a Coisa", note: "aaaaaaa", categoria: "Terror", status: .red),
+        .init(autor: "Jonh Green", title: "Cidade de Papel", note: "aaaaaaa", categoria: "Romance", status: .red),
+        .init(autor: "Jonh Green", title: "Quem é voce Alasca", note: "aaaaaaa", categoria: "Romance", status: .red),
+        .init(autor: "Austin Kleon", title: "Roube como um artista", note: "aaaaaaa", categoria: "Criatividade", status: .red)
+        
     ]
     
     var models: [Livro] = []
